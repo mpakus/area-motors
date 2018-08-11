@@ -17,6 +17,10 @@ module EmailsHelpers
     read_email 'carsforsale-email-wrong'
   end
 
+  def email_import_helper
+    Email::Import.perform(Rails.root.join('spec', 'fixtures'), false)
+  end
+
   private
 
   def read_email(file_name)

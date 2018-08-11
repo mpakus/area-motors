@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Web::EnquiriesController < Web::ApplicationController
+  before_action :enquiry, only: %i[update show]
+
   # List of Enquiries
   def index
     @enquiries = Enquiries::Filter.perform(params).result
@@ -19,10 +21,15 @@ class Web::EnquiriesController < Web::ApplicationController
 
   # Update status of Enquiry to -> done
   def update
-    @enquiry = Enquiry.find(params[:id])
     @enquiry.done!
   end
 
   # Show full information about Enquiry
   def show; end
+
+  private
+
+  def enquiry
+    @enquiry = Enquiry.find(params[:id])
+  end
 end

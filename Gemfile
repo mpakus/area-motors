@@ -44,8 +44,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'chromedriver-helper'
+  gem 'rails-controller-testing'
   gem 'rspec-rails' # Test framework
-  gem 'selenium-webdriver'
 end

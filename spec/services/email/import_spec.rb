@@ -2,7 +2,7 @@
 
 RSpec.describe Email::Import do
   # Run with spec/fixtures path and without deleting of files
-  subject { described_class.perform(Rails.root.join('spec', 'fixtures'), false) }
+  subject { email_import_helper }
 
   describe 'correct email imports' do
     it { expect(subject.success?).to be_truthy }

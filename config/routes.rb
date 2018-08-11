@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   scope module: :web do
-    resources :enquiries, except: %i[destroy]
+    resources :enquiries, only: %i[index create update show]
   end
   root 'web/enquiries#index'
 end

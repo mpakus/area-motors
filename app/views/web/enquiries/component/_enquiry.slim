@@ -9,6 +9,8 @@ tr id="row#{enquiry.id}"
       = link_to 'TO DONE', enquiry_path(enquiry), method: :PUT, remote: true,
               class: 'btn btn-outline-primary btn-sm', title: 'Change to DONE'
     - if enquiry.email_invalid?
-      .btn.btn-outline-dark.btn-sm INVALID
+      .badge.badge-secondary INVALID
+    - if enquiry.done?
+      .badge.badge-success DONE
   td
-    = simple_format enquiry.message
+    = link_to simple_format(truncate(enquiry.message, length: 140)), enquiry_path(enquiry), remote: true
