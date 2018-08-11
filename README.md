@@ -1,5 +1,7 @@
 ## Area Motors Customer Enquiries
 
+[ ![Codeship Status for mpakus/area-motors](https://app.codeship.com/projects/ca5a1090-7faa-0136-8a01-22cfa0e00c5e/status?branch=master)](https://app.codeship.com/projects/301501)
+
 Area Motors is a used car dealership. They advertise their used cars on two websites (AMDirect and CarsForSale). Prospective customers complete a contact form on these websites to enquire about the vehicle they’re interested in and those websites send an email to Area Motors email account. 
 
 Area Motors has a few employees and they find it difficult to keep track of all these customer enquiry emails and the owner is concerned that customer enquiries are not being dealt with by his employees as quickly as he would like. The owner wants a tool to keep track of all these customer enquiries in one place so that he can keep an eye on things.
