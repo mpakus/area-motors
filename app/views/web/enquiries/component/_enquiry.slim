@@ -1,0 +1,14 @@
+tr id="row#{enquiry.id}"
+  td= enquiry.id
+  td= l enquiry.created_at, format: :short
+  td= link_to enquiry.name, enquiries_path(name: enquiry.name)
+  td= link_to enquiry.email, enquiries_path(email: enquiry.email)
+  td= Enquiry::SOURCES[enquiry.source.to_sym]
+  td
+    - if enquiry.pending?
+      = link_to 'TO DONE', enquiry_path(enquiry), method: :PUT, remote: true,
+              class: 'btn btn-outline-primary btn-sm', title: 'Change to DONE'
+    - if enquiry.email_invalid?
+      .btn.btn-outline-dark.btn-sm INVALID
+  td
+    = simple_format enquiry.message

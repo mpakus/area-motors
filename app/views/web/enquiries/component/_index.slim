@@ -1,0 +1,13 @@
+#enquiries
+  table.table.table-hover.table-striped
+    thead.thead-dark
+      th ID
+      th Date
+      th Name
+      th E-mail
+      th Source
+      th Status
+      th Message
+    = render partial: 'web/enquiries/component/enquiry', collection: @enquiries, as: :enquiry
+
+= paginate @enquiries, theme: 'twitter-bootstrap-4'

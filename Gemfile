@@ -7,11 +7,14 @@ ruby '2.4.0'
 
 gem 'aasm' # State machine
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap4-kaminari-views' # Pagination design
 gem 'coffee-rails', '~> 4.2'
 gem 'comandor' # Action, Commands service object
 gem 'email_address' # E-mail validation
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'kaminari' # Pagination
 gem 'oga' # Nokogiri alternative for Parse and Search in XML, HTML documents
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
