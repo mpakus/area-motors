@@ -1,0 +1,15 @@
+.modal role="dialog" tabindex="-1" id="enquiryModal"
+  .modal-dialog role="document"
+    .modal-content
+      .modal-header
+        h5.modal-title Enquiry information
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        p E-mail: #{mail_to enquiry.email, enquiry.name}
+        hr
+        p= simple_format enquiry.message
+        hr
+        p= sanitize enquiry.addon, tags: %w[div p span br table tr td a b i], attributes: %w[href]
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  Close
