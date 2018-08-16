@@ -1,0 +1,15 @@
+h2= customer.name
+p= mail_to customer.email
+
+hr
+h4 Notes
+- customer.notes.ordered.each do |note|
+  blockquote
+    = simple_format note.description
+  hr
+
+hr
+= form_for [customer, @note] do |f|
+  = f.text_area :description, class: 'form-controller', style:'width:60%', rows: 10
+  br
+  = f.submit 'Add note', class: 'btn btn-success'

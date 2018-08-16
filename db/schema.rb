@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_11_061300) do
+ActiveRecord::Schema.define(version: 2018_08_16_100853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_customers_on_email"
+    t.index ["name"], name: "index_customers_on_name"
+  end
 
   create_table "enquiries", force: :cascade do |t|
     t.string "name"
@@ -25,9 +34,20 @@ ActiveRecord::Schema.define(version: 2018_08_11_061300) do
     t.jsonb "error"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_enquiries_on_customer_id"
     t.index ["email"], name: "index_enquiries_on_email"
     t.index ["name"], name: "index_enquiries_on_name"
     t.index ["source"], name: "index_enquiries_on_source"
   end
 
+  create_table "notes", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_notes_on_customer_id"
+  end
+
+  add_foreign_key "enquiries", "customers"
 end

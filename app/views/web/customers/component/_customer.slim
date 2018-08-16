@@ -1,0 +1,5 @@
+tr id="row#{customer.id}"
+  td= customer.id
+  td= l customer.created_at, format: :short
+  td= link_to customer.name, customer_path(customer)
+  td= link_to customer.email, customer_path(customer)
