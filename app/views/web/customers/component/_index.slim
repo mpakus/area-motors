@@ -1,0 +1,10 @@
+#enquiries
+  table.table.table-hover.table-striped
+    thead.thead-dark
+      th ID
+      th Date
+      th Name
+      th E-mail
+    = render partial: 'web/customers/component/customer', collection: @customers, as: :customer
+
+= paginate @customers, theme: 'twitter-bootstrap-4'
