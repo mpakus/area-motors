@@ -6,13 +6,13 @@ class Enquiry < ApplicationRecord
   include ActsAsStateMachine
   include ActsAsSource
 
-  belongs_to :customer
+  belongs_to :customer, optional: true
 
   private
 
   def find_customer_or_create
-    new_customer = Customer.find_or_create_by(email: enq.email) do |customer|
-      customer.name = enq.name
+    new_customer = Customer.find_or_create_by(email: email) do |customer|
+      customer.name = name
     end
     self.customer_id = new_customer.id
   end
