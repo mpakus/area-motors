@@ -5,6 +5,7 @@ class Web::EnquiriesController < Web::ApplicationController
 
   # List of Enquiries
   def index
+    Feature.load(Rails.root.join('config', 'features.yml'), Rails.env)
     @enquiries = Enquiries::Filter.perform(params).result
   end
 

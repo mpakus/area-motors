@@ -1,0 +1,8 @@
+development:
+  new_profile: true
+  can_send_messages: true
+  chat_is_online: false
+production:
+  new_profile: false
+  can_send_messages: false
+  chat_is_online: true
